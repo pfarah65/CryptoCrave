@@ -4,7 +4,10 @@
 <div class="row">
 	<div class="col-md-10 offset-md-1 col-lg-12 offset-lg-2 text-xs-center">
 		<h1><%= @post.title %></h1>
-		<p><%= @post.display_day_published %></p>
-		<%= @post.body %>
+		<h6><%= @post.display_day_published %></h6>
+		<% if @post.body!=nil%>
+			<%= @post.body.html_safe %>
+		<%end%>
+
 	</div>
 </div>

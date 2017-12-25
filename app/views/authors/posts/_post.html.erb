@@ -3,11 +3,13 @@
  
   <td></td>
  
-  <td>
-  	<%= link_to "Edit", edit_authors_post_path(post), class: "btn btn_sm btn-warning"%>
-  </td>
+ <% if post.published? %>
+ 	<td><%= link_to "Unpublish", unpublish_authors_post_path(post), class: "btn btn_sm btn-danger", method: :put%></td>
+ <% else %>
+  	<td><%= link_to "Publish", publish_authors_post_path(post), class: "btn btn_sm btn-success", method: :put%></td>
+ <% end %>
+
+   <td><%= link_to "Edit", edit_authors_post_path(post), class: "btn btn_sm btn-warning"%></td>
  
-  <td><%= link_to "Remove",authors_post_path(post),method:
-   :delete, data: {confirm: "Are you sure?"},
-   class:"btn btn_sm btn-danger:"%></td>
+  <td><%= link_to "Remove",authors_post_path(post),class:"btn btn_sm btn-danger",method: :delete, data: {confirm: "Are you sure?"}%></td>
 </tr>

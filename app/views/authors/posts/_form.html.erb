@@ -11,22 +11,58 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :post_title %>
+  <div class="row">
+    <div class="col-md-3 pull-left">
+      <div class="card" style="width: 14rem;" >
+        <div class="card-block">
+          <% if @post.new_record?%>
+            <h4 class="card-title">New Post</h4>
+          <% else %>
+            <h4>
+              <b>Edit</b>
+            </h4>
+            <span class="thin-text"><%= @post.title %></span>
+          <% end %>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="field">
+              <%= form.label :title %>
+              <%= form.text_field :title, class: "form-control" %>
+            </div>            
+          </li>
+          <li class="list-group-item">
+            <div class="field">
+              <%= form.label :banner_image_url %>
+              <%= form.text_area :banner_image_url, class: "form-control" %>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="field">
+              <%= form.label :description %>
+              <%= form.text_area :description, class: "form-control" %>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="actions">
+              <%= form.submit "Save and Post", class: "btn btn-primary btn btn-block" %>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <% if @post.persisted? %>
+        <%= link_to 'Show', @post %> |
+      <% end %>
+      <%= link_to 'Back', authors_posts_path %>
+    </div>
+    <div class="col-md-9 pull-right">
+      <div class="field">
+        <%= form.text_area :body%>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :banner_image_url %>
-    <%= form.text_area :banner_image_url %>
-  </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :post_description %>
-  </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+
 <% end %>

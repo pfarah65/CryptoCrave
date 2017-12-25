@@ -1,5 +1,5 @@
 .navbar {
-    background-color:#B22222;
+    background-color:$theme-blue;
     border-radius: 0;
     margin-bottom: 20px;
 
@@ -11,6 +11,15 @@
     }
     .navbar-toggler {
         outline: none;
+    }
+    .navbar-brand{
+        padding-top: 2px;
+        color:white;
+    }
+    .nav-item{
+
+        padding-bottom:0;
+        color:white;
     }
 
  }
