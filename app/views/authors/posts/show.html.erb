@@ -4,15 +4,13 @@
 
 <div>
 	<%= link_to "Edit",edit_authors_post_path(@post), class: "btn btn_sm btn-warning"%>
-	<%= link_to "Remove",authors_post_path(@post),method:
-   :delete, data: {confirm: "Are you sure?"},
-   class:"btn btn_sm btn-danger:"%>
+	<%= link_to "Remove",authors_post_path(@post),method: :delete, data: {confirm: "Are you sure?"},class:"btn btn_sm btn-danger:"%>
 </div>
 
 <div class="row">
 	<div class="col-md-10 offset-md-1 col-lg-12 offset-lg-2 text-xs-center">
 		<h1><%= @post.title %></h1>
-		<h4><%= @post.display_day_published %></h4>
+		<h6><%= @post.display_day_published %></h6>
 		<% if @post.body!=nil%>
 			<%= @post.body.html_safe %>
 		<%end%>
