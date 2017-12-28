@@ -1,0 +1,66 @@
+<div class="row">
+    <%= form_tag authors_info_path do %>
+      <div class="col-md-6 pull-left">
+        <div class="card" style="width: 30rem;" >
+          <div class="card-block">
+            <div class="card-title">
+              Your Profile
+            </div>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="field">
+                <%= label_tag :name %>
+                <%= text_field_tag :name, nil, class: "form-control" %>
+              </div>            
+            </li>
+            <li class="list-group-item">
+              <div class="field">
+                <%= label_tag :email %>
+                <%= email_field_tag :email, nil, class: "form-control" %>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="field">
+                <%= label_tag :bio %>
+                <%= text_area_tag :bio, nil, class: "form-control" %>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+    </--- change password --->
+    <%= form_tag authors_password_path do %>
+      <div class="col-md-6 pull-left">
+        <div class="card" style="width: 30rem;" >
+          <div class="card-block">
+            <div class="card-title">
+              Change Password
+            </div>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="field">
+                <%= label_tag :current_password %>
+                <%= password_field_tag :current_password, nil, class: "form-control" %>
+              </div>            
+            </li>
+            <li class="list-group-item">
+              <div class="field">
+                <%= label_tag :new_password %>
+                <%= password_field_tag :new_password, nil, class: "form-control" %>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="field">
+                <%= label_tag :new_password_confirmation %>
+                <%= password_field_tag :new_password_confirmation, nil, class: "form-control" %>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

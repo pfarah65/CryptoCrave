@@ -10,7 +10,10 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
+//= require jquery_ujs
 //= require bootstrap-sprockets
+//= reuiqre bootstrap
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
@@ -19,10 +22,10 @@ document.addEventListener("turbolinks:load", function() {
   tinymce.init({ 
   	  	height: '450',
   	selector:'textarea#post_body', 
-  	plugins: 'codesample, wordcount, image, media, link, code',
+  	plugins: 'codesample, wordcount, image, media, link, code,',
   	//space sensitive!
-  	toolbar: "undo redo | styleselect | bold italic | codesample | image | media | link | code"
-
+  	toolbar: "undo redo | fontsizeselect | fontselect | bold italic | codesample | image | media | link | code"
+  	//font_formats: 'Arial=arial,helvetica,sans-serif;Courier New=courier new,courier,monospace;AkrutiKndPadmini=Akpdmi-n'
   });
 
 })

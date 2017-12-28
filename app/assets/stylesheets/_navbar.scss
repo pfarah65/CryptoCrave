@@ -1,12 +1,14 @@
 .navbar {
-    background-color:$theme-blue;
+    background-color:$primary-color;
     border-radius: 0;
     margin-bottom: 20px;
 
     .navbar-brand {
         font-weight: bolder;
+        color: $accent-color;
         .light {
             font-weight: 300;
+            color: $primary-color-light;
         }
     }
     .navbar-toggler {
@@ -16,11 +18,13 @@
         padding-top: 2px;
         color:white;
     }
-    .nav-item{
-
-        padding-bottom:0;
-        color:white;
+    .nav-link{
+        color: $primary-color-light !important;
+        &.active{
+            color: $primary-color-text !important;
+            }
     }
+
 
  }
  
