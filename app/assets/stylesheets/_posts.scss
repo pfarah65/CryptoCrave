@@ -89,7 +89,33 @@
   }
 }
 
+.posts.show{
+  .row{
+    background-color: white;
+    border-radius: 25px;
+    padding: 20px;
+    }
+  .row-author{
+    background-color: white;
+    border-radius: 25px;
+    padding: 20px;
 
+    .center{
+      display: table;
+      margin: 0 auto;
+      .author-bio{
+        img{
+          margin-bottom: 5px;
+          margin-left: 10px;
+          hieght: 100px;
+          width: 100px;
+          border-radius: 50%;
+          border:1px solid $primary-color-light;
+        }
+      }
+    }
+  }
+}
 
 
 @media screen and (min-width: 34em) {

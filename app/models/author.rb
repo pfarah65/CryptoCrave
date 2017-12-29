@@ -24,4 +24,27 @@ class Author < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :trackable, :validatable
   has_many :posts
+
+  validates_presence_of :name, on: :update
+  def navbar_title
+  	if name.present?
+  		name
+  	else
+  		"Author"
+  	end
+  end
+
+  def gravatar_image_url
+  	"https://www.gravatar.com/avatar/#{gravatar_hash}"	
+  end
+
+
+  private
+
+  def gravatar_hash
+  	Digest::MD5.hexdigest(email.downcase)
+  end
+
+
+
 end

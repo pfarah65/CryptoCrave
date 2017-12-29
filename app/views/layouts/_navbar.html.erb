@@ -40,20 +40,25 @@
         <%= link_to 'Contact', contact_path, class: "nav-link #{yield(:contact_active)}" %>
       </li>
       <li class="nav-item">
-          <div class="dropdown show">
-          <a class="btn btn-secondary dropdown-toggle <%=yield(:author)%>" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Author
+        <div class="dropdown show-all">
+          <a class="nav-link dropdown-toggle <%=yield(:author)%>" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <% if author_signed_in?%>
+              <%= image_tag(current_author.gravatar_image_url) %>
+              <%= current_author.navbar_title %>
+            <% else %>
+              Become an author
+            <% end %>
           </a>
-        <% if author_signed_in?%>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <%= link_to 'My posts', authors_posts_path, class: "dropdown-item" %>
-            <%= link_to 'Account', authors_account_path, class: "dropdown-item" %>
-            <%= link_to 'Logout', destroy_author_session_path, method: :delete, class: "dropdown-item" %>
-        <% else%>
+          <% if author_signed_in?%>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <%= link_to 'My posts', authors_posts_path, class: "dropdown-item" %>
-        <%end%>
-          </div>
+              <%= link_to 'Account', authors_account_path, class: "dropdown-item" %>
+              <%= link_to 'Logout', destroy_author_session_path, method: :delete, class: "dropdown-item" %>
+          <% else%>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <%= link_to 'Sign Up', authors_posts_path, class: "dropdown-item" %>
+              </div>
+          <%end%>
         </div>
       </li>
     </ul>
