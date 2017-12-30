@@ -1,26 +1,60 @@
-<h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+<div class="container-sign-in">
+  
+  <div class="row">
+    <div class ="col-md-5 col-lg-6"></div>
+      <div class="col-md-10 col-lg-12 text-xs-center">
+        <h2>Log in</h2>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="field">
+              <%= f.label :email %><br />
+              <%= f.email_field :email , autofocus: true, class: "form-control"  %>
+            </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+            <div class="field">
+              <%= f.label :password %><br />
+              <%= f.password_field :password, autocomplete: "off",class: "form-control" %>
+            </div>
+
+            <% if devise_mapping.rememberable? -%>
+              <div class="field">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </div>
+            <% end -%>
+
+            <div class="actions">
+              <%= f.submit "Log in", class: "btn btn-success btn btn-block" %>
+            </div>
+          <% end %>
     </div>
-  <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+
   </div>
-<% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+<style type="text/css">
+  .container-sign-in{
+      margin: auto;
+      margin-top: 100px; 
+      background-color: white;
+      border-radius: 25px;
+      padding: 20px;
+      width: 30%;
+  }
+  .actions{
+    margin-top: 20px;
+  }
+  .field{
+    margin-top: 20px;
+  }
+  .form-control{
+      border-radius: 0;
+      border-outline: white;
+  }
+</style>
+
+
+ <%= render "devise/shared/links" %>
+

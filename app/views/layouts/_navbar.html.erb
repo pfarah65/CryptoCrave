@@ -31,7 +31,7 @@
     </button>
     <ul class="nav navbar-nav pull-sm-right hidden-xs-down">
       <li class="nav-item">
-        <%= form_tag search_posts_path do %>
+        <%= form_tag search_posts_path,method: :get do %>
           <input class='search-full-width' id="search-bar" name="query" placeholder="Search posts" type="text" autocomplete="off">
         <% end %>
       </li>
