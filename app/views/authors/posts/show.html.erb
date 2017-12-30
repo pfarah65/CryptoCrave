@@ -1,20 +1,37 @@
 <% provide(:page_title,@post.title)%>
 <% provide(:blog_active,"active")%>
+<% if flash.any? %>
+  <% flash.keys.each do |key| %>
 
+    <div class="alert alert-<%= key.to_s %>" role="alert">
+      <%= flash[key] %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %>
+<% end %>
 
 <div>
+	<% if @post.published? %>
+ 		<td><%= link_to "Unpublish", unpublish_authors_post_path(@post), class: "btn btn_sm btn-danger", method: :put%></td>
+	<% else %>
+  		<td><%= link_to "Publish", publish_authors_post_path(@post), class: "btn btn_sm btn-success", method: :put%></td>
+	<% end %>
 	<%= link_to "Edit",edit_authors_post_path(@post), class: "btn btn_sm btn-warning"%>
-	<%= link_to "Remove",authors_post_path(@post),method: :delete, data: {confirm: "Are you sure?"},class:"btn btn_sm btn-danger:"%>
+	<%= link_to "Remove",authors_post_path(@post),class: "btn btn_sm btn-danger", method: :delete, data: {confirm: "Are you sure?"}%>
 </div>
 
+<hr>
 <div class="row">
-	<div class="col-md-10 offset-md-1 col-lg-12 offset-lg-2 text-xs-center">
-		<h1><%= @post.title %></h1>
-		<h6><%= @post.display_day_published %></h6>
-		<% if @post.body!=nil%>
-			<%= @post.body.html_safe %>
-		<%end%>
-
-
+	<div class ="col-md-1 col-lg-2"></div>
+		<div class="col-md-10 col-lg-12 text-xs-center">
+			<h1><%= @post.title %></h1>
+			<h6><%= @post.display_day_published %></h6>
+			<% if @post.body!=nil%>
+				<%= @post.body.html_safe %>
+			<%end%>
 	</div>
+
+
 </div>

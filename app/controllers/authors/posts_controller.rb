@@ -20,11 +20,13 @@ module Authors
 	  def publish
 	  	@post.publish
 	  	redirect_to authors_posts_url
+	  	flash[:success]= "Post was successfully published."
 	  end
 
 	  def unpublish
 		@post.unpublish
 		redirect_to authors_posts_url
+		flash[:danger]= "Post was successfully unpublished."
 	  end
 
 	  # GET /posts/1/edit
@@ -35,10 +37,10 @@ module Authors
 	  # POST /posts.json
 	  def create
 	    @post = current_author.posts.new(post_params)
-
 	    respond_to do |format|
 	      if @post.save
-	        format.html { redirect_to authors_post_path(@post), notice: 'Post was successfully created.' }
+	      	flash[:success]= "Post was successfully saved."
+	        format.html { redirect_to authors_post_path(@post)}
 	        format.json { render :show, status: :created, location: @post }
 	      else
 	        format.html { render :new }
@@ -52,7 +54,9 @@ module Authors
 	  def update
 	    respond_to do |format|
 	      if @post.update(post_params)
-	        format.html { redirect_to authors_post_path(@post), notice: 'Post was successfully updated.' }
+	      	@post.unpublish
+			flash[:success]= "Post was successfully updated."
+	        format.html { redirect_to authors_post_path(@post) }
 	        format.json { render :show, status: :ok, location: @post }
 	      else
 	        format.html { render :edit }
@@ -64,10 +68,11 @@ module Authors
 	  # DELETE /posts/1
 	  # DELETE /posts/1.json
 	  def destroy
-	    @post.destroy
+	  	@post.destroy
+	  	flash[:danger]= "Post was deleted."
 	    respond_to do |format|
-	      format.html { redirect_to authors_posts_url, notice: 'Post was successfully destroyed.' }
-	      format.json { head :no_content }
+	    	format.html { redirect_to authors_posts_url }
+	    	format.json { head :no_content }
 	    end
 	  end
 
