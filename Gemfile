@@ -22,6 +22,9 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 #gem bootstrap,friendlyId and devise authentication - PF
 gem 'bootstrap', '4.0.0.alpha4'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3'
+end
 #gem friendlyId
 gem 'friendly_id', ' ~> 5.1.0'
 #gem user auth
