@@ -30,6 +30,11 @@
       &#9776;
     </button>
     <ul class="nav navbar-nav pull-sm-right hidden-xs-down">
+      <li class="nav-item">
+        <%= form_tag search_posts_path do %>
+          <input class='search-full-width' id="search-bar" name="query" placeholder="Search posts" type="text" autocomplete="off">
+        <% end %>
+      </li>
       <li class="nav-item" >
         <%= link_to 'Blog', root_path, class: "nav-link #{yield(:blog_active)}" %>
       </li>
@@ -39,6 +44,7 @@
       <li class="nav-item">
         <%= link_to 'Contact', contact_path, class: "nav-link #{yield(:contact_active)}" %>
       </li>
+
       <li class="nav-item">
         <div class="dropdown show-all">
           <a class="nav-link dropdown-toggle <%=yield(:author)%>" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

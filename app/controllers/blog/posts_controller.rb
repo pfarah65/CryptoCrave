@@ -4,7 +4,7 @@ module Blog
 	  # GET /posts.json
 	  MAX_AMOUNT=9
 	  def index
-	  	if params[:tag].present?
+	   	if params[:tag].present?
 	  		@posts = Post.most_recent.published.tagged_with(params[:tag]).paginate(:page => params[:page], per_page:MAX_AMOUNT)
 	  	else
 	    	@posts = Post.most_recent.published.paginate(:page => params[:page], per_page:9)
@@ -15,6 +15,16 @@ module Blog
 	  # GET /posts/1.json
 	  def show
 	      @post = Post.published.friendly.find(params[:id])
+	  end
+
+	  def search
+	  	@q="%#{params[:query]}%"
+	  	#binding.pry
+	  	@posts= Post
+	  	.most_recent
+	  	.published
+	  	.paginate(:page => params[:page], per_page:MAX_AMOUNT).where("title LIKE ?",@q)
+	  	render 'index'
 	  end
 
 	end

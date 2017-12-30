@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 		get "contact" => 'pages#contact', as: :contact
 		get "posts" => 'posts#index' , as: :posts
 		get "posts/:id" => 'posts#show', as: :post
+		post "posts/search/" => 'posts#search', as: :search_posts
 	end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
