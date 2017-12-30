@@ -2,30 +2,37 @@
 <% provide(:blog_active,"active")%>
 
 <div class="row">
-	<div class ="col-md-1 col-lg-2"></div>
-		<div class="col-md-10 col-lg-12 text-xs-center">
-			<h1><%= @post.title %></h1>
-			<h6><%= @post.display_day_published %></h6>
-			<% if @post.body!=nil%>
-				<%= @post.body.html_safe %>
-			<%end%>
+	<div class="col-sm-12 col-md-12 col-lg-12 text-xs-center test">
+		<h1><center><%= @post.title %></center></h1>
+		<h6><%= @post.display_day_published %></h6>
+		<% if @post.body!=nil%>
+				<%= @post.body.html_safe %>					
+		<%end%>
 	</div>
 
 
-</div>
-<hr>
-<div class="row row-author">
-	<h2><center>Author</center></h2>
-	<hr>
-	<div class="col-md-12 col-lg-12 ">
-		<div class="center">	
-			<div class="author-bio">
-				<h4><%= @post.author.name %></h4>
-				<%= image_tag(@post.author.gravatar_image_url) %>
-				<h6><%= @post.author.bio %></h6>
+
+	<div class="row row-author">
+		<div class="col-sm-12 col-md-12 col-lg-12 content">
+			<hr>
+			<h2>Author</h2>
+			<div class="center">	
+				<div class="author-bio">
+					<div>
+						<h4><%= @post.author.name %></h4>
+					</div>
+					
+					<div>
+						<%= image_tag(@post.author.gravatar_image_url) %>
+					</div>
+					
+					<div>
+						
+						<h6><%= @post.author.bio %></h6>
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>	
+		</div>	
 </div>
 
 	
@@ -58,4 +65,10 @@ s.setAttribute('data-timestamp', +new Date());
 })();
 </script>
 
+<style type="text/css">
+	.row{
+		background-color: green;		
+
+	}
+</style>
                             
