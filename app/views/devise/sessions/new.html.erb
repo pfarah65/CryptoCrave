@@ -1,8 +1,8 @@
 
-
-<div class="container-sign-in">
-  <div class="row">
-      <div class="col-md-12 col-lg-12 text-xs-center centerer">
+<div class="row">
+  
+  <br>
+      <div class="col-sm-5 col-md-5 col-lg-4 text-xs-center  centerer">
         <h2>Log in</h2>
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="field">
@@ -26,20 +26,20 @@
               <%= f.submit "Log in", class: "btn btn-primary btn btn-block" %>
             </div>
           <% end %>
+      <%= render "devise/shared/links" %>
     </div>
-  </div>
 </div>
 
+
 <style type="text/css">
-  .container-sign-in{
-      margin: auto;
-      margin-top: 50px; 
-      margin-bottom: 50px;
+
+  .centerer{
+    float:none;
+      margin: 0 auto;
       background-color: white;
       border-radius: 25px;
       padding: 20px;
-      width: 50%;
-      height: 200%;
+
   }
   .actions{
     margin-top: 20px;
@@ -54,8 +54,8 @@
       border-radius: 0;
       border-outline: white;
   }
+
 </style>
 
 
- <%= render "devise/shared/links" %>
 
