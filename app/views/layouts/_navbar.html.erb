@@ -62,7 +62,8 @@
               <%= link_to 'Logout', destroy_author_session_path, method: :delete, class: "dropdown-item" %>
           <% else%>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <%= link_to 'Sign Up', authors_posts_path, class: "dropdown-item" %>
+                <%= link_to 'Sign up', new_registration_path(:author), class: "dropdown-item" %>
+                <%= link_to 'Log in', new_session_path(:author), class: "dropdown-item" %>
               </div>
           <%end%>
         </div>
