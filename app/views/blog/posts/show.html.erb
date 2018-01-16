@@ -5,9 +5,11 @@
 	<div class="col-sm-12 col-md-12 col-lg-12 text-xs-center test">
 		<h1><center><%= @post.title %></center></h1>
 		<h6><%= @post.display_day_published %></h6>
+	</div>
+	<div class="row">
 		<% if @post.body!=nil%>
 				<p><%= @post.body.html_safe %></p>					
-		<%end%>
+		<%end%>		
 	</div>
 
 
